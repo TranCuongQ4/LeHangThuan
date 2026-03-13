@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lễ Hằng Thuận</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ảnh nền full, kéo dãn vừa khít -->
+    <div class="bg-overlay"></div> <!-- Lớp phủ tối nhẹ -->
+
+    <div class="fixed-overlay">
+        <div class="buttons-container">
+
+            <div class="button-row">
+                <button class="btn" id="btn-cung-nghinh"><span>Cung Nghinh</span></button>
+                <button class="btn" id="btn-dan-le"><span>Dẩn Lễ</span></button>
+            </div>
+
+            <div class="button-row">
+                <button class="btn" id="btn-dang-tra"><span>Dâng Trà</span></button>
+                <button class="btn" id="btn-trao-nhan"><span>Trao Nhẫn</span></button>
+            </div>
+
+            <div class="button-row center">
+                <button class="btn" id="btn-giao-bai"><span>Giao Bái</span></button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Dòng chữ footer ở dưới cùng -->
+    <footer class="footer-text">
+        Ứng Dụng Do Trần Cưởng Phát Triển - Zalo 0907860662
+    </footer>
+
+    <!-- Các file nhạc riêng cho từng button -->
+    <audio id="audio-cung-nghinh" loop>
+        <source src="luuthuycungnghinh.mp3" type="audio/mpeg">
+        Trình duyệt không hỗ trợ phát nhạc.
+    </audio>
+    <audio id="audio-dan-le" loop>
+        <source src="maudonmix.mp3" type="audio/mpeg">
+        Trình duyệt không hỗ trợ phát nhạc.
+    </audio>
+    <audio id="audio-dang-tra" loop>
+        <source src="khuccahoachucmix.mp3" type="audio/mpeg">
+        Trình duyệt không hỗ trợ phát nhạc.
+    </audio>
+    <audio id="audio-trao-nhan" loop>
+        <source src="kimtienlacdiamix.mp3" type="audio/mpeg">
+        Trình duyệt không hỗ trợ phát nhạc.
+    </audio>
+    <audio id="audio-giao-bai" loop>
+        <source src="luuthuybinhbanmix.mp3" type="audio/mpeg">
+        Trình duyệt không hỗ trợ phát nhạc.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

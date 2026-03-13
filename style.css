@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Không scroll, trang vừa khít viewport */
+}
+
+body {
+    background: url('Anh Nen Chuyen.png') no-repeat center center;
+    background-size: 100% 100%;     /* Kéo dãn full width + height, không crop */
+    background-attachment: fixed;   /* Ảnh cố định, không cuộn */
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #fff;
+    height: 100dvh;                 /* Tốt cho mobile iOS/Android */
+}
+
+/* Lớp phủ tối nhẹ (giúp chữ button và footer nổi bật) */
+.bg-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+/* Container button fixed overlay lên ảnh */
+.fixed-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    z-index: 10;
+}
+
+.buttons-container {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    align-items: center;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.button-row.center {
+    justify-content: center;
+}
+
+.btn {
+    width: 260px;
+    height: 170px;
+    background: url('Button.png') center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
+    z-index: 11;
+}
+
+.btn:hover {
+    transform: scale(1.07);
+    filter: drop-shadow(0 12px 24px rgba(255, 215, 0, 0.4));
+}
+
+.btn:active {
+    transform: scale(0.94);
+}
+
+.btn span {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffeb3b;
+    text-shadow: 0 0 8px #000, 1px 1px 4px #000;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    pointer-events: none;
+}
+
+/* Footer text - dòng chữ nhỏ ở dưới cùng */
+.footer-text {
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 14px;
+    color: #ffeb3b;
+    text-shadow: 0 0 6px #000, 1px 1px 3px #000;
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: 12;
+    padding: 0 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .btn { width: 220px; height: 145px; }
+    .btn span { font-size: 20px; bottom: 18px; }
+    .button-row { gap: 35px; }
+    .buttons-container { gap: 30px; }
+}
+
+@media (max-width: 600px) {
+    .btn { width: 190px; height: 125px; }
+    .btn span { font-size: 18px; bottom: 16px; }
+    .button-row {
+        gap: 25px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .buttons-container { gap: 25px; }
+    .footer-text { font-size: 12px; bottom: 8px; }
+}
+
+/* Hiệu ứng khi button đang phát nhạc */
+.btn.playing {
+    filter: drop-shadow(0 0 20px #ff0000) drop-shadow(0 10px 20px rgba(255,0,0,0.5));
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.btn.playing span {
+    color: #ff0000 !important; /* đỏ nổi bật */
+    text-shadow: 0 0 12px #ff0000, 0 0 20px #ff0000;
+}
+
+/* Hiệu ứng khi pause */
+.btn.paused {
+    filter: drop-shadow(0 0 15px #00aaff) drop-shadow(0 8px 16px rgba(0,170,255,0.4));
+}
+
+.btn.paused span {
+    color: #00aaff !important; /* xanh dương */
+    text-shadow: 0 0 10px #00aaff, 0 0 16px #00aaff;
+}
+
+/* Animation nhấp nháy nhẹ cho playing */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive giữ nguyên, không cần thêm */
